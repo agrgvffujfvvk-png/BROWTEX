@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>البحث — TIXIT</title>
+    <meta name="description" content="البحث داخل جميع معلومات وملفات TIXIT">
+    <meta name="theme-color" content="#111827">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="tixit-app" data-tixit-page="search">
+
+    <header class="tixit-header">
+
+        <div class="tixit-header-left">
+
+            <button
+                class="tixit-icon-button tixit-mobile-menu-button"
+                type="button"
+                data-tixit-menu
+                aria-label="فتح القائمة">
+                ☰
+            </button>
+
+            <a href="index.html" class="tixit-logo" data-tixit-home>
+                <span class="tixit-logo-mark">T</span>
+
+                <span>
+                    <strong class="tixit-logo-text">TIXIT</strong>
+                    <small class="tixit-logo-subtitle">مركز المعلومات</small>
+                </span>
+            </a>
+
+        </div>
+
+        <div class="tixit-global-search">
+
+            <span class="tixit-global-search-icon">⌕</span>
+
+            <input
+                type="search"
+                data-tixit-global-search
+                placeholder="ابحث في TIXIT..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                class="tixit-global-search-clear"
+                data-tixit-search-clear>
+                ×
+            </button>
+
+        </div>
+
+        <div class="tixit-header-actions">
+
+            <button
+                class="tixit-icon-button"
+                type="button"
+                data-tixit-theme
+                title="تغيير المظهر">
+                ◐
+            </button>
+
+        </div>
+
+    </header>
+
+    <div class="tixit-layout">
+
+        <aside class="tixit-sidebar">
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    الرئيسية
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="index.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="home">
+
+                        <span class="tixit-nav-icon">⌂</span>
+                        <span class="tixit-nav-label">الرئيسية</span>
+
+                    </a>
+
+                    <a
+                        href="search.html"
+                        class="tixit-nav-item active"
+                        data-tixit-nav="search">
+
+                        <span class="tixit-nav-icon">⌕</span>
+                        <span class="tixit-nav-label">البحث</span>
+
+                    </a>
+
+                    <a
+                        href="library.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="library">
+
+                        <span class="tixit-nav-icon">▣</span>
+                        <span class="tixit-nav-label">المكتبة</span>
+
+                        <span
+                            class="tixit-nav-count"
+                            data-tixit-stat="documents">
+                            0
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    إدارة المعلومات
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="add.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="add">
+
+                        <span class="tixit-nav-icon">＋</span>
+                        <span class="tixit-nav-label">إضافة معلومات</span>
+
+                    </a>
+
+                    <a
+                        href="settings.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="settings">
+
+                        <span class="tixit-nav-icon">⚙</span>
+                        <span class="tixit-nav-label">الإعدادات</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="tixit-sidebar-section tixit-sidebar-bottom">
+
+                <div class="tixit-sidebar-title">
+                    البيانات
+                </div>
+
+                <div class="tixit-sidebar-actions">
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-backup>
+                        ↑ نسخة احتياطية
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-restore>
+                        ↓ استعادة
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <div
+            class="tixit-mobile-overlay"
+            data-tixit-overlay>
+        </div>
+
+        <main class="tixit-main">
+
+            <div class="tixit-container">
+
+                <div class="tixit-page-header">
+
+                    <div>
+
+                        <h1 class="tixit-page-title">
+                            البحث
+                        </h1>
+
+                        <p class="tixit-page-description">
+                            ابحث داخل جميع المعلومات والملفات المحفوظة في TIXIT.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-body">
+
+                        <form id="tixitSearchForm">
+
+                            <div class="tixit-search-box tixit-search-box-large">
+
+                                <span class="tixit-global-search-icon">
+                                    ⌕
+                                </span>
+
+                                <input
+                                    id="tixitSearchInput"
+                                    class="tixit-search-input"
+                                    type="search"
+                                    placeholder="اكتب كلمة أو عبارة للبحث..."
+                                    autocomplete="off"
+                                    autofocus>
+
+                                <button
+                                    type="button"
+                                    id="tixitClearSearch"
+                                    class="tixit-btn tixit-btn-secondary">
+                                    مسح
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="tixit-btn tixit-btn-primary">
+                                    بحث
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <div class="tixit-toolbar">
+
+                            <div class="tixit-toolbar-group">
+
+                                <span class="tixit-toolbar-label">
+                                    نوع المحتوى:
+                                </span>
+
+                                <select id="tixitTypeFilter" class="tixit-select">
+
+                                    <option value="all">الكل</option>
+                                    <option value="text">نصوص</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="file">ملفات</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="tixit-toolbar-group">
+
+                                <label class="tixit-checkbox">
+
+                                    <input
+                                        type="checkbox"
+                                        id="tixitFavoritesOnly">
+
+                                    <span>
+                                        المفضلة فقط
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section
+                    class="tixit-card"
+                    id="tixitSearchStatus"
+                    hidden>
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-search-status">
+
+                            <strong id="tixitSearchStatusText">
+                                جاري البحث...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section
+                    class="tixit-card"
+                    id="tixitResultsCard"
+                    hidden>
+
+                    <div class="tixit-card-header">
+
+                        <div>
+
+                            <h2 class="tixit-card-title">
+                                نتائج البحث
+                            </h2>
+
+                            <p
+                                class="tixit-page-description"
+                                id="tixitResultsCount">
+                                0 نتيجة
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="tixit-card-body">
+
+                        <div
+                            class="tixit-list"
+                            id="tixitSearchResults">
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section
+                    class="tixit-card"
+                    id="tixitSearchEmpty">
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-empty-state">
+
+                            <div class="tixit-empty-icon">
+                                ⌕
+                            </div>
+
+                            <h3>
+                                ابحث في معلوماتك
+                            </h3>
+
+                            <p>
+                                اكتب كلمة أو عبارة في مربع البحث للعثور
+                                على المعلومات الموجودة داخل قاعدة بيانات TIXIT.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-header">
+
+                        <h2 class="tixit-card-title">
+                            نصائح للبحث
+                        </h2>
+
+                    </div>
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-grid tixit-grid-3">
+
+                            <div class="tixit-tip">
+
+                                <strong>
+                                    كلمة واحدة
+                                </strong>
+
+                                <p>
+                                    اكتب كلمة أساسية للعثور على جميع النتائج المتعلقة بها.
+                                </p>
+
+                            </div>
+
+                            <div class="tixit-tip">
+
+                                <strong>
+                                    عبارة كاملة
+                                </strong>
+
+                                <p>
+                                    يمكنك البحث باستخدام أكثر من كلمة للحصول على نتائج أدق.
+                                </p>
+
+                            </div>
+
+                            <div class="tixit-tip">
+
+                                <strong>
+                                    استخدم الفلاتر
+                                </strong>
+
+                                <p>
+                                    اختر نوع المحتوى أو اعرض العناصر المفضلة فقط.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <footer class="tixit-footer">
+
+        <div>
+            <strong>TIXIT</strong>
+            <span> — مركز المعلومات الشخصي</span>
+        </div>
+
+        <div>
+            © 2026 TIXIT
+        </div>
+
+    </footer>
+
+</div>
+
+<input
+    type="file"
+    id="tixitRestoreInput"
+    accept=".json,application/json"
+    hidden>
+
+<script src="js/database.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+(function () {
+
+    "use strict";
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function () {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .then(function () {
+                    console.log("TIXIT Service Worker فعال");
+                })
+                .catch(function (error) {
+                    console.error(
+                        "TIXIT Service Worker Error:",
+                        error
+                    );
+                });
+
+        });
+
+    }
+
+
+    const form = document.getElementById("tixitSearchForm");
+    const input = document.getElementById("tixitSearchInput");
+
+    const clearButton =
+        document.getElementById("tixitClearSearch");
+
+    const resultsCard =
+        document.getElementById("tixitResultsCard");
+
+    const emptyCard =
+        document.getElementById("tixitSearchEmpty");
+
+    const resultsContainer =
+        document.getElementById("tixitSearchResults");
+
+    const resultsCount =
+        document.getElementById("tixitResultsCount");
+
+    const statusCard =
+        document.getElementById("tixitSearchStatus");
+
+    const statusText =
+        document.getElementById("tixitSearchStatusText");
+
+    const typeFilter =
+        document.getElementById("tixitTypeFilter");
+
+    const favoritesOnly =
+        document.getElementById("tixitFavoritesOnly");
+
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function getURLQuery() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        return params.get("q") || "";
+
+    }
+
+
+    function normalize(value) {
+
+        return String(value || "")
+            .toLowerCase()
+            .trim();
+
+    }
+
+
+    function detectType(item) {
+
+        const type =
+            String(
+                item.type ||
+                item.fileType ||
+                item.kind ||
+                ""
+            ).toLowerCase();
+
+        if (
+            type.includes("pdf") ||
+            String(item.mimeType || "").includes("pdf")
+        ) {
+            return "pdf";
+        }
+
+        if (
+            type.includes("text") ||
+            type.includes("txt") ||
+            type.includes("note")
+        ) {
+            return "text";
+        }
+
+        return "file";
+
+    }
+
+
+    function itemMatches(item, query) {
+
+        if (!query) return true;
+
+        const searchable = [
+
+            item.title,
+            item.name,
+            item.description,
+            item.content,
+            item.text,
+            item.extractedText,
+            item.category,
+            item.tags,
+            item.fileName
+
+        ].join(" ");
+
+        return normalize(searchable)
+            .includes(normalize(query));
+
+    }
+
+
+    function renderResult(item) {
+
+        const title =
+            item.title ||
+            item.name ||
+            item.fileName ||
+            "عنصر بدون عنوان";
+
+        const description =
+            item.description ||
+            item.excerpt ||
+            item.content ||
+            item.text ||
+            item.extractedText ||
+            "لا توجد معاينة متاحة.";
+
+        const type = detectType(item);
+
+        const id =
+            item.id ||
+            item.documentId ||
+            "";
+
+        const safeTitle =
+            escapeHTML(title);
+
+        const safeDescription =
+            escapeHTML(
+                String(description).slice(0, 280)
+            );
+
+        return `
+            <article class="tixit-document">
+
+                <div class="tixit-document-icon">
+                    ${type === "pdf" ? "PDF" : type === "text" ? "TXT" : "FILE"}
+                </div>
+
+                <div class="tixit-document-main">
+
+                    <h3 class="tixit-document-title">
+                        ${safeTitle}
+                    </h3>
+
+                    <div class="tixit-document-meta">
+                        <span class="tixit-badge">
+                            ${escapeHTML(type.toUpperCase())}
+                        </span>
+                    </div>
+
+                    <p class="tixit-document-description">
+                        ${safeDescription}
+                    </p>
+
+                </div>
+
+                <div class="tixit-document-actions">
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-primary tixit-btn-small"
+                        data-tixit-result-view="${escapeHTML(id)}">
+                        فتح
+                    </button>
+
+                </div>
+
+            </article>
+        `;
+
+    }
+
+
+    async function getDocuments() {
+
+        if (typeof window.getTixitDocuments === "function") {
+            return await window.getTixitDocuments();
+        }
+
+        if (typeof window.getAllTixitDocuments === "function") {
+            return await window.getAllTixitDocuments();
+        }
+
+        if (
+            window.TIXIT_DB &&
+            window.TIXIT_DB.stores &&
+            window.TIXIT_DB.stores.documents
+        ) {
+
+            const store =
+                window.TIXIT_DB.stores.documents;
+
+            if (typeof store.getAll === "function") {
+                return await store.getAll();
+            }
+
+        }
+
+        return [];
+
+    }
+
+
+    async function search() {
+
+        const query = input.value.trim();
+
+        const selectedType =
+            typeFilter.value;
+
+        const onlyFavorites =
+            favoritesOnly.checked;
+
+        if (!query) {
+
+            resultsCard.hidden = true;
+            statusCard.hidden = true;
+            emptyCard.hidden = false;
+
+            resultsContainer.innerHTML = "";
+
+            return;
+
+        }
+
+        statusCard.hidden = false;
+        emptyCard.hidden = true;
+        resultsCard.hidden = true;
+
+        statusText.textContent =
+            "جاري البحث داخل قاعدة البيانات...";
+
+        try {
+
+            const documents =
+                await getDocuments();
+
+            let results =
+                Array.isArray(documents)
+                    ? documents
+                    : [];
+
+            results =
+                results.filter(function (item) {
+
+                    if (!itemMatches(item, query)) {
+                        return false;
+                    }
+
+                    if (
+                        selectedType !== "all" &&
+                        detectType(item) !== selectedType
+                    ) {
+                        return false;
+                    }
+
+                    if (onlyFavorites) {
+
+                        return Boolean(
+                            item.favorite ||
+                            item.isFavorite
+                        );
+
+                    }
+
+                    return true;
+
+                });
+
+            statusCard.hidden = true;
+            resultsCard.hidden = false;
+
+            resultsCount.textContent =
+                results.length === 1
+                    ? "نتيجة واحدة"
+                    : `${results.length} نتائج`;
+
+            if (!results.length) {
+
+                resultsContainer.innerHTML = `
+
+                    <div class="tixit-empty-state">
+
+                        <div class="tixit-empty-icon">
+                            !
+                        </div>
+
+                        <h3>
+                            لم نجد نتائج
+                        </h3>
+
+                        <p>
+                            جرّب استخدام كلمة أخرى أو تغيير الفلاتر.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+            resultsContainer.innerHTML =
+                results.map(renderResult).join("");
+
+            resultsContainer
+                .querySelectorAll(
+                    "[data-tixit-result-view]"
+                )
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const id =
+                                this.dataset.tixitResultView;
+
+                            if (!id) return;
+
+                            window.location.href =
+                                "viewer.html?id=" +
+                                encodeURIComponent(id);
+
+                        }
+                    );
+
+                });
+
+        } catch (error) {
+
+            console.error(
+                "TIXIT Search Error:",
+                error
+            );
+
+            statusCard.hidden = false;
+            resultsCard.hidden = true;
+
+            statusText.textContent =
+                "حدث خطأ أثناء البحث. تأكد من أن قاعدة البيانات تعمل بشكل صحيح.";
+
+        }
+
+    }
+
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const query =
+                input.value.trim();
+
+            const url =
+                new URL(
+                    window.location.href
+                );
+
+            if (query) {
+
+                url.searchParams.set(
+                    "q",
+                    query
+                );
+
+            } else {
+
+                url.searchParams.delete("q");
+
+            }
+
+            window.history.replaceState(
+                {},
+                "",
+                url
+            );
+
+            search();
+
+        }
+    );
+
+
+    clearButton.addEventListener(
+        "click",
+        function () {
+
+            input.value = "";
+
+            const url =
+                new URL(
+                    window.location.href
+                );
+
+            url.searchParams.delete("q");
+
+            window.history.replaceState(
+                {},
+                "",
+                url
+            );
+
+            resultsCard.hidden = true;
+            statusCard.hidden = true;
+            emptyCard.hidden = false;
+
+            resultsContainer.innerHTML = "";
+
+            input.focus();
+
+        }
+    );
+
+
+    typeFilter.addEventListener(
+        "change",
+        search
+    );
+
+
+    favoritesOnly.addEventListener(
+        "change",
+        search
+    );
+
+
+    const initialQuery =
+        getURLQuery();
+
+    if (initialQuery) {
+
+        input.value =
+            initialQuery;
+
+        search();
+
+    }
+
+})();
+</script>
+
+</body>
+</html>

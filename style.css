@@ -1,0 +1,2246 @@
+/* =========================================================
+   TIXIT — GLOBAL DESIGN SYSTEM
+   Version 1.0
+   ========================================================= */
+
+:root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --text: #17202a;
+    --text-soft: #667085;
+    --border: #e5e7eb;
+    --border-strong: #d0d5dd;
+
+    --primary: #111827;
+    --primary-hover: #000000;
+    --primary-text: #ffffff;
+
+    --success: #15803d;
+    --success-bg: #dcfce7;
+
+    --warning: #b45309;
+    --warning-bg: #fef3c7;
+
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+
+    --info: #1d4ed8;
+    --info-bg: #dbeafe;
+
+    --sidebar-width: 250px;
+    --header-height: 68px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 17px;
+    --radius-xl: 23px;
+
+    --shadow-sm:
+        0 1px 2px rgba(16, 24, 40, 0.04);
+
+    --shadow-md:
+        0 5px 18px rgba(16, 24, 40, 0.07);
+
+    --transition:
+        180ms ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: #dbeafe;
+    color: #111827;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   APP SHELL
+   ========================================================= */
+
+.tixit-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tixit-layout {
+    display: flex;
+    min-height: calc(100vh - var(--header-height));
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.tixit-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: var(--header-height);
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 0 20px;
+
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.tixit-logo {
+    width: 205px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    user-select: none;
+}
+
+.tixit-logo-mark {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: var(--primary);
+    color: var(--primary-text);
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.tixit-logo-text {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.tixit-logo-subtitle {
+    display: block;
+
+    margin-top: -4px;
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   GLOBAL SEARCH
+   ========================================================= */
+
+.tixit-global-search {
+    width: min(680px, 100%);
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.tixit-global-search-icon {
+    position: absolute;
+    right: 14px;
+
+    color: #98a2b3;
+
+    pointer-events: none;
+}
+
+.tixit-global-search input {
+    width: 100%;
+    height: 42px;
+
+    padding:
+        0 42px
+        0 44px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: var(--surface-2);
+    color: var(--text);
+
+    transition: var(--transition);
+}
+
+.tixit-global-search input::placeholder {
+    color: #98a2b3;
+}
+
+.tixit-global-search input:focus {
+    background: var(--surface);
+    border-color: var(--border-strong);
+
+    box-shadow:
+        0 0 0 3px rgba(17, 24, 39, 0.05);
+}
+
+.tixit-global-search-clear {
+    position: absolute;
+    left: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--text-soft);
+
+    cursor: pointer;
+}
+
+.tixit-global-search-clear:hover {
+    background: #eef2f6;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.tixit-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.tixit-icon-button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: var(--surface-2);
+    color: #344054;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.tixit-icon-button:hover {
+    background: #eaecf0;
+    transform: translateY(-1px);
+}
+
+.tixit-icon-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.tixit-sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+
+    position: sticky;
+    top: var(--header-height);
+
+    height: calc(100vh - var(--header-height));
+
+    overflow-y: auto;
+
+    padding: 18px 13px;
+
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+}
+
+.tixit-sidebar-section {
+    margin-bottom: 24px;
+}
+
+.tixit-sidebar-title {
+    padding: 0 10px;
+    margin-bottom: 7px;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+.tixit-nav {
+    display: grid;
+    gap: 4px;
+}
+
+.tixit-nav-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: transparent;
+    color: #475467;
+
+    text-align: right;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.tixit-nav-item:hover {
+    background: #f2f4f7;
+    color: var(--text);
+}
+
+.tixit-nav-item.active {
+    background: #eef2f6;
+    color: var(--text);
+    font-weight: 750;
+}
+
+.tixit-nav-icon {
+    width: 20px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+.tixit-nav-label {
+    flex: 1;
+}
+
+.tixit-nav-count {
+    min-width: 23px;
+    height: 21px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 5px;
+
+    border-radius: 99px;
+
+    background: #eef2f6;
+    color: #667085;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.tixit-main {
+    flex: 1;
+    min-width: 0;
+
+    padding: 30px;
+
+    overflow: hidden;
+}
+
+.tixit-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.tixit-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.tixit-page-title {
+    margin: 0;
+
+    font-size: 27px;
+    font-weight: 850;
+
+    line-height: 1.3;
+}
+
+.tixit-page-description {
+    margin: 5px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.tixit-hero {
+    position: relative;
+
+    padding: 38px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tixit-hero h1 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 8px;
+
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.tixit-hero p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+
+.tixit-search-box {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.tixit-search-input {
+    flex: 1;
+    min-width: 0;
+
+    height: 50px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: var(--surface);
+    color: var(--text);
+
+    transition: var(--transition);
+}
+
+.tixit-search-input:focus {
+    border-color: #98a2b3;
+
+    box-shadow:
+        0 0 0 3px rgba(17, 24, 39, 0.05);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.tixit-btn {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 15px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.tixit-btn:hover {
+    transform: translateY(-1px);
+}
+
+.tixit-btn:active {
+    transform: translateY(0);
+}
+
+.tixit-btn-primary {
+    background: var(--primary);
+    color: var(--primary-text);
+}
+
+.tixit-btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.tixit-btn-secondary {
+    background: #eef1f4;
+    color: #344054;
+}
+
+.tixit-btn-secondary:hover {
+    background: #e4e7ec;
+}
+
+.tixit-btn-success {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.tixit-btn-warning {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.tixit-btn-danger {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+.tixit-btn-info {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+.tixit-btn-small {
+    min-height: 34px;
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.tixit-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+}
+
+.tixit-stat {
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tixit-stat-label {
+    color: var(--text-soft);
+
+    font-size: 12px;
+}
+
+.tixit-stat-value {
+    margin-top: 4px;
+
+    font-size: 27px;
+    font-weight: 850;
+}
+
+.tixit-stat-extra {
+    margin-top: 4px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.tixit-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tixit-card-header {
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 12px 17px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.tixit-card-title {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.tixit-card-body {
+    padding: 17px;
+}
+
+
+/* =========================================================
+   DOCUMENT LIST
+   ========================================================= */
+
+.tixit-list {
+    display: grid;
+    gap: 9px;
+}
+
+.tixit-document {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    transition: var(--transition);
+}
+
+.tixit-document:hover {
+    border-color: #cfd4dc;
+
+    box-shadow: var(--shadow-sm);
+
+    transform: translateY(-1px);
+}
+
+.tixit-document-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: #f2f4f7;
+
+    font-size: 18px;
+}
+
+.tixit-document-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.tixit-document-title {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tixit-document-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 8px;
+
+    margin-top: 4px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+.tixit-document-description {
+    margin-top: 7px;
+
+    color: #667085;
+
+    font-size: 12px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+.tixit-document-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.tixit-badge {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 22px;
+
+    padding: 2px 8px;
+
+    border-radius: 99px;
+
+    background: #f2f4f7;
+    color: #475467;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.tixit-badge-pdf {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.tixit-badge-text {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.tixit-badge-favorite {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.tixit-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 8px;
+}
+
+.tixit-tag {
+    padding: 3px 8px;
+
+    border-radius: 6px;
+
+    background: #f2f4f7;
+    color: #475467;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.tixit-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    flex-wrap: wrap;
+}
+
+.tixit-toolbar-left,
+.tixit-toolbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+.tixit-filter {
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--border-strong);
+    border-radius: 9px;
+
+    outline: none;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+.tixit-filter:focus {
+    border-color: #98a2b3;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.tixit-form {
+    display: grid;
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tixit-form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+.tixit-field {
+    display: grid;
+    gap: 6px;
+}
+
+.tixit-label {
+    color: #344054;
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.tixit-input,
+.tixit-textarea,
+.tixit-select {
+    width: 100%;
+
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--surface);
+    color: var(--text);
+
+    transition: var(--transition);
+}
+
+.tixit-input,
+.tixit-select {
+    height: 42px;
+
+    padding: 0 11px;
+}
+
+.tixit-textarea {
+    min-height: 250px;
+
+    padding: 12px;
+
+    resize: vertical;
+
+    line-height: 1.8;
+}
+
+.tixit-input:focus,
+.tixit-textarea:focus,
+.tixit-select:focus {
+    border-color: #98a2b3;
+
+    box-shadow:
+        0 0 0 3px rgba(17, 24, 39, 0.05);
+}
+
+
+/* =========================================================
+   DROP ZONE
+   ========================================================= */
+
+.tixit-dropzone {
+    min-height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    border: 2px dashed #cbd5e1;
+    border-radius: 15px;
+
+    background: #f8fafc;
+
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+.tixit-dropzone:hover,
+.tixit-dropzone.dragging {
+    border-color: #64748b;
+    background: #f1f5f9;
+}
+
+.tixit-dropzone-content {
+    display: grid;
+    gap: 6px;
+
+    justify-items: center;
+}
+
+.tixit-dropzone-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 5px;
+
+    border-radius: 13px;
+
+    background: #e2e8f0;
+
+    font-size: 21px;
+}
+
+.tixit-dropzone-title {
+    font-weight: 800;
+}
+
+.tixit-dropzone-text {
+    color: var(--text-soft);
+
+    font-size: 12px;
+}
+
+.tixit-hidden-file {
+    display: none !important;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+   ========================================================= */
+
+.tixit-results {
+    display: grid;
+    gap: 10px;
+}
+
+.tixit-result {
+    padding: 17px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tixit-result-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.tixit-result-title {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 850;
+}
+
+.tixit-result-meta {
+    margin-top: 3px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+.tixit-result-snippet {
+    margin-top: 11px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: var(--surface-2);
+
+    color: #344054;
+
+    line-height: 1.9;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.tixit-result-snippet mark {
+    padding: 1px 3px;
+
+    border-radius: 3px;
+
+    background: #fde68a;
+    color: #111827;
+}
+
+.tixit-result-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.tixit-result-actions {
+    display: flex;
+    gap: 5px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.tixit-empty {
+    min-height: 210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    border: 1px dashed #cbd5e1;
+    border-radius: 15px;
+
+    background: var(--surface);
+
+    text-align: center;
+}
+
+.tixit-empty-content {
+    max-width: 400px;
+}
+
+.tixit-empty-icon {
+    width: 54px;
+    height: 54px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 10px;
+
+    border-radius: 15px;
+
+    background: #f2f4f7;
+
+    font-size: 22px;
+}
+
+.tixit-empty-title {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.tixit-empty-text {
+    margin: 5px 0 15px;
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   READER
+   ========================================================= */
+
+.tixit-reader {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+}
+
+.tixit-reader-header {
+    padding: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.tixit-reader-title {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 850;
+}
+
+.tixit-reader-meta {
+    margin-top: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+.tixit-reader-body {
+    padding: 25px;
+
+    color: #344054;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.tixit-reader-page {
+    padding: 22px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--surface-2);
+}
+
+.tixit-reader-page:last-child {
+    margin-bottom: 0;
+}
+
+.tixit-page-number {
+    margin-bottom: 8px;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
+
+.tixit-settings {
+    display: grid;
+    gap: 10px;
+}
+
+.tixit-setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--surface);
+}
+
+.tixit-setting-title {
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.tixit-setting-description {
+    margin: 4px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SWITCH
+   ========================================================= */
+
+.tixit-switch {
+    width: 48px;
+    height: 27px;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    border-radius: 99px;
+
+    background: #d0d5dd;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.tixit-switch::after {
+    content: "";
+
+    width: 21px;
+    height: 21px;
+
+    position: absolute;
+
+    top: 3px;
+    right: 3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.tixit-switch.active {
+    background: var(--primary);
+}
+
+.tixit-switch.active::after {
+    right: 24px;
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.tixit-history {
+    display: grid;
+    gap: 7px;
+}
+
+.tixit-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    background: var(--surface);
+}
+
+.tixit-history-query {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.tixit-history-date {
+    margin-top: 2px;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.tixit-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.58);
+
+    backdrop-filter: blur(3px);
+}
+
+.tixit-modal.open {
+    display: flex;
+}
+
+.tixit-modal-box {
+    width: min(900px, 100%);
+
+    max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.18);
+
+    overflow: hidden;
+}
+
+.tixit-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 15px 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.tixit-modal-title {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 850;
+}
+
+.tixit-modal-body {
+    overflow: auto;
+
+    padding: 20px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.tixit-toast-container {
+    position: fixed;
+
+    left: 18px;
+    bottom: 18px;
+
+    z-index: 2000;
+
+    display: grid;
+    gap: 8px;
+}
+
+.tixit-toast {
+    min-width: 250px;
+    max-width: 390px;
+
+    padding: 12px 15px;
+
+    border-radius: 11px;
+
+    background: #111827;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.16);
+
+    font-size: 12px;
+
+    animation:
+        tixitToastIn 180ms ease;
+}
+
+.tixit-toast.success {
+    background: #166534;
+}
+
+.tixit-toast.error {
+    background: #991b1b;
+}
+
+.tixit-toast.warning {
+    background: #92400e;
+}
+
+@keyframes tixitToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.tixit-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 35px;
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+}
+
+.tixit-spinner {
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid #d0d5dd;
+    border-top-color: #344054;
+
+    border-radius: 50%;
+
+    animation: tixitSpin 0.7s linear infinite;
+}
+
+@keyframes tixitSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.tixit-progress {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 99px;
+
+    background: #e5e7eb;
+}
+
+.tixit-progress-bar {
+    width: 0;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #111827;
+
+    transition: width 200ms ease;
+}
+
+
+/* =========================================================
+   FILE IMPORT LIST
+   ========================================================= */
+
+.tixit-file-list {
+    display: grid;
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.tixit-file-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: var(--surface-2);
+}
+
+.tixit-file-icon {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    background: #e5e7eb;
+
+    font-size: 13px;
+}
+
+.tixit-file-name {
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tixit-file-size {
+    color: var(--text-soft);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.tixit-checkbox {
+    width: 17px;
+    height: 17px;
+
+    accent-color: #111827;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.tixit-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 16px 0;
+
+    background: var(--border);
+}
+
+
+/* =========================================================
+   INLINE CODE / CODE BLOCK
+   ========================================================= */
+
+.tixit-code {
+    padding: 2px 6px;
+
+    border-radius: 5px;
+
+    background: #f2f4f7;
+
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+}
+
+.tixit-code-block {
+    padding: 15px;
+
+    overflow-x: auto;
+
+    border-radius: 11px;
+
+    background: #111827;
+    color: #f9fafb;
+
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+
+    position: absolute;
+
+    bottom: calc(100% + 8px);
+    right: 50%;
+
+    transform:
+        translateX(50%)
+        translateY(3px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background: #111827;
+    color: #ffffff;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    transition: var(--transition);
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+
+    transform:
+        translateX(50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.tixit-dark {
+    --bg: #0f1720;
+    --surface: #17212b;
+    --surface-2: #111a23;
+
+    --text: #f2f4f7;
+    --text-soft: #98a2b3;
+
+    --border: #293542;
+    --border-strong: #3a4654;
+
+    --primary: #f3f4f6;
+    --primary-hover: #ffffff;
+    --primary-text: #111827;
+}
+
+html.tixit-dark ::selection {
+    background: #334155;
+    color: #ffffff;
+}
+
+html.tixit-dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+html.tixit-dark .tixit-logo-mark {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+html.tixit-dark .tixit-global-search input {
+    background: #111a23;
+    border-color: #293542;
+}
+
+html.tixit-dark .tixit-global-search input:focus {
+    background: #17212b;
+}
+
+html.tixit-dark .tixit-global-search-clear:hover,
+html.tixit-dark .tixit-icon-button:hover,
+html.tixit-dark .tixit-nav-item:hover,
+html.tixit-dark .tixit-nav-item.active,
+html.tixit-dark .tixit-nav-count,
+html.tixit-dark .tixit-btn-secondary,
+html.tixit-dark .tixit-document-icon,
+html.tixit-dark .tixit-tag,
+html.tixit-dark .tixit-badge,
+html.tixit-dark .tixit-empty-icon {
+    background: #26313d;
+}
+
+html.tixit-dark .tixit-icon-button,
+html.tixit-dark .tixit-nav-item {
+    color: #d0d5dd;
+}
+
+html.tixit-dark .tixit-btn-secondary {
+    color: #eaecf0;
+}
+
+html.tixit-dark .tixit-input,
+html.tixit-dark .tixit-textarea,
+html.tixit-dark .tixit-select,
+html.tixit-dark .tixit-filter {
+    background: #111a23;
+    color: #f2f4f7;
+    border-color: #3a4654;
+}
+
+html.tixit-dark .tixit-dropzone {
+    background: #111a23;
+    border-color: #475569;
+}
+
+html.tixit-dark .tixit-dropzone:hover,
+html.tixit-dark .tixit-dropzone.dragging {
+    background: #1d2935;
+}
+
+html.tixit-dark .tixit-result-snippet,
+html.tixit-dark .tixit-reader-page,
+html.tixit-dark .tixit-file-item {
+    background: #111a23;
+}
+
+html.tixit-dark .tixit-result-snippet,
+html.tixit-dark .tixit-reader-body,
+html.tixit-dark .tixit-document-description {
+    color: #cbd5e1;
+}
+
+html.tixit-dark .tixit-switch {
+    background: #475569;
+}
+
+html.tixit-dark .tixit-switch.active {
+    background: #f3f4f6;
+}
+
+html.tixit-dark .tixit-switch.active::after {
+    background: #111827;
+}
+
+html.tixit-dark .tixit-progress {
+    background: #334155;
+}
+
+html.tixit-dark .tixit-progress-bar {
+    background: #f3f4f6;
+}
+
+html.tixit-dark .tixit-result-snippet mark {
+    background: #854d0e;
+    color: #fff7ed;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.tixit-mobile-menu {
+    display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .tixit-logo {
+        width: 175px;
+    }
+
+    .tixit-main {
+        padding: 23px;
+    }
+
+    .tixit-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    :root {
+        --header-height: 116px;
+    }
+
+    .tixit-header {
+        height: var(--header-height);
+
+        flex-wrap: wrap;
+
+        align-content: center;
+
+        padding: 9px 12px;
+    }
+
+    .tixit-logo {
+        width: auto;
+        margin-left: auto;
+    }
+
+    .tixit-header-actions {
+        margin-right: auto;
+    }
+
+    .tixit-global-search {
+        order: 3;
+
+        width: 100%;
+        max-width: none;
+
+        flex-basis: 100%;
+    }
+
+    .tixit-sidebar {
+        position: fixed;
+
+        top: var(--header-height);
+        right: 0;
+        bottom: 0;
+
+        z-index: 90;
+
+        width: min(280px, 86vw);
+
+        transform: translateX(105%);
+
+        transition:
+            transform 220ms ease;
+
+        box-shadow:
+            -10px 0 35px rgba(0, 0, 0, 0.08);
+    }
+
+    html.tixit-sidebar-open .tixit-sidebar {
+        transform: translateX(0);
+    }
+
+    .tixit-mobile-menu {
+        display: grid;
+    }
+
+    .tixit-main {
+        width: 100%;
+        padding: 17px;
+    }
+
+    .tixit-layout {
+        display: block;
+    }
+
+    .tixit-overlay {
+        position: fixed;
+        inset: var(--header-height) 0 0;
+
+        z-index: 80;
+
+        display: none;
+
+        background: rgba(15, 23, 42, 0.45);
+    }
+
+    html.tixit-sidebar-open .tixit-overlay {
+        display: block;
+    }
+
+    .tixit-hero {
+        padding: 25px 20px;
+    }
+
+    .tixit-hero h1 {
+        font-size: 27px;
+    }
+
+    .tixit-page-title {
+        font-size: 23px;
+    }
+
+    .tixit-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .tixit-main {
+        padding: 12px;
+    }
+
+    .tixit-stats {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .tixit-stat {
+        padding: 14px;
+    }
+
+    .tixit-stat-value {
+        font-size: 23px;
+    }
+
+    .tixit-search-box {
+        flex-direction: column;
+    }
+
+    .tixit-search-box .tixit-btn {
+        width: 100%;
+    }
+
+    .tixit-page-header {
+        flex-direction: column;
+    }
+
+    .tixit-toolbar {
+        align-items: stretch;
+    }
+
+    .tixit-toolbar-left,
+    .tixit-toolbar-right {
+        width: 100%;
+    }
+
+    .tixit-filter {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .tixit-document {
+        flex-wrap: wrap;
+    }
+
+    .tixit-document-main {
+        width: calc(100% - 56px);
+    }
+
+    .tixit-document-actions {
+        width: 100%;
+        padding-right: 56px;
+    }
+
+    .tixit-document-actions .tixit-btn {
+        flex: 1;
+    }
+
+    .tixit-reader-body {
+        padding: 17px;
+
+        font-size: 13px;
+    }
+
+    .tixit-modal {
+        padding: 8px;
+    }
+
+    .tixit-modal-box {
+        max-height: 95vh;
+        border-radius: 14px;
+    }
+
+    .tixit-setting {
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 390px) {
+
+    .tixit-logo-text {
+        font-size: 19px;
+    }
+
+    .tixit-logo-subtitle {
+        display: none;
+    }
+
+    .tixit-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .tixit-icon-button {
+        width: 37px;
+        height: 37px;
+    }
+
+    .tixit-header {
+        gap: 8px;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .tixit-header,
+    .tixit-sidebar,
+    .tixit-header-actions,
+    .tixit-document-actions,
+    .tixit-toolbar,
+    .tixit-btn {
+        display: none !important;
+    }
+
+    .tixit-main {
+        padding: 0;
+    }
+
+    .tixit-reader,
+    .tixit-card,
+    .tixit-result {
+        border: 0;
+        box-shadow: none;
+    }
+
+    body {
+        background: #ffffff;
+    }
+}
