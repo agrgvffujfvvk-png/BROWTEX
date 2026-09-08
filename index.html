@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TIXIT — مركز المعلومات الشخصي</title>
+    <meta name="description" content="TIXIT - حفظ وتنظيم والبحث في معلوماتك وملفاتك بسهولة">
+    <meta name="theme-color" content="#111827">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="tixit-app" data-tixit-page="home">
+
+    <header class="tixit-header">
+
+        <div class="tixit-header-left">
+
+            <button
+                class="tixit-icon-button tixit-mobile-menu-button"
+                type="button"
+                data-tixit-menu
+                aria-label="فتح القائمة">
+                ☰
+            </button>
+
+            <a href="index.html" class="tixit-logo" data-tixit-home>
+                <span class="tixit-logo-mark">T</span>
+
+                <span>
+                    <strong class="tixit-logo-text">TIXIT</strong>
+                    <small class="tixit-logo-subtitle">مركز المعلومات</small>
+                </span>
+            </a>
+
+        </div>
+
+        <div class="tixit-global-search">
+
+            <span class="tixit-global-search-icon">⌕</span>
+
+            <input
+                type="search"
+                id="tixitGlobalSearch"
+                data-tixit-global-search
+                placeholder="ابحث في معلوماتك وملفاتك..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                class="tixit-global-search-clear"
+                data-tixit-search-clear
+                aria-label="مسح البحث">
+                ×
+            </button>
+
+        </div>
+
+        <div class="tixit-header-actions">
+
+            <button
+                class="tixit-icon-button"
+                type="button"
+                data-tixit-theme
+                aria-label="تغيير المظهر"
+                title="تغيير المظهر">
+                ◐
+            </button>
+
+        </div>
+
+    </header>
+
+    <div class="tixit-layout">
+
+        <aside class="tixit-sidebar">
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    الرئيسية
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="index.html"
+                        class="tixit-nav-item active"
+                        data-tixit-nav="home">
+
+                        <span class="tixit-nav-icon">⌂</span>
+                        <span class="tixit-nav-label">الرئيسية</span>
+
+                    </a>
+
+                    <a
+                        href="search.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="search">
+
+                        <span class="tixit-nav-icon">⌕</span>
+                        <span class="tixit-nav-label">البحث</span>
+
+                    </a>
+
+                    <a
+                        href="library.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="library">
+
+                        <span class="tixit-nav-icon">▣</span>
+                        <span class="tixit-nav-label">المكتبة</span>
+                        <span
+                            class="tixit-nav-count"
+                            data-tixit-stat="documents">
+                            0
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    إدارة المعلومات
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="add.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="add">
+
+                        <span class="tixit-nav-icon">＋</span>
+                        <span class="tixit-nav-label">إضافة معلومات</span>
+
+                    </a>
+
+                    <a
+                        href="settings.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="settings">
+
+                        <span class="tixit-nav-icon">⚙</span>
+                        <span class="tixit-nav-label">الإعدادات</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="tixit-sidebar-section tixit-sidebar-bottom">
+
+                <div class="tixit-sidebar-title">
+                    البيانات
+                </div>
+
+                <div class="tixit-sidebar-actions">
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-backup>
+                        ↑ نسخة احتياطية
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-restore>
+                        ↓ استعادة
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <div
+            class="tixit-mobile-overlay"
+            data-tixit-overlay>
+        </div>
+
+        <main class="tixit-main">
+
+            <div class="tixit-container">
+
+                <section class="tixit-hero">
+
+                    <div class="tixit-hero-content">
+
+                        <span class="tixit-badge">
+                            مركز معلوماتك
+                        </span>
+
+                        <h1>
+                            كل معلوماتك في مكان واحد.
+                        </h1>
+
+                        <p>
+                            احفظ النصوص والملفات وملفات PDF،
+                            ثم ابحث داخلها بسرعة عندما تحتاج أي معلومة.
+                        </p>
+
+                        <form
+                            class="tixit-search-box"
+                            id="tixitHomeSearchForm">
+
+                            <span class="tixit-global-search-icon">
+                                ⌕
+                            </span>
+
+                            <input
+                                type="search"
+                                class="tixit-search-input"
+                                id="tixitHomeSearch"
+                                placeholder="ماذا تريد أن تبحث عنه؟"
+                                autocomplete="off">
+
+                            <button
+                                type="submit"
+                                class="tixit-btn tixit-btn-primary">
+                                بحث
+                            </button>
+
+                        </form>
+
+                        <div class="tixit-hero-actions">
+
+                            <a
+                                href="add.html"
+                                class="tixit-btn tixit-btn-primary">
+                                ＋ إضافة معلومات
+                            </a>
+
+                            <a
+                                href="library.html"
+                                class="tixit-btn tixit-btn-secondary">
+                                فتح المكتبة
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="tixit-stats">
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            إجمالي العناصر
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            data-tixit-stat="documents">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            محفوظة في TIXIT
+                        </span>
+
+                    </div>
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            ملفات PDF
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            data-tixit-stat="pdf">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            ملفات قابلة للبحث
+                        </span>
+
+                    </div>
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            نصوص
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            data-tixit-stat="text">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            معلومات نصية
+                        </span>
+
+                    </div>
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            المفضلة
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            data-tixit-stat="favorites">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            عناصر مهمة
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <section>
+
+                    <div class="tixit-page-header">
+
+                        <div>
+                            <h2 class="tixit-page-title">
+                                ابدأ بسرعة
+                            </h2>
+
+                            <p class="tixit-page-description">
+                                اختر ما تريد القيام به الآن.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="tixit-grid tixit-grid-3">
+
+                        <a
+                            href="add.html"
+                            class="tixit-card tixit-action-card">
+
+                            <div class="tixit-card-body">
+
+                                <div class="tixit-document-icon">
+                                    ＋
+                                </div>
+
+                                <h3 class="tixit-card-title">
+                                    أضف معلومات
+                                </h3>
+
+                                <p class="tixit-card-description">
+                                    أضف نصًا أو ملفًا أو PDF إلى قاعدة بيانات TIXIT.
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                        <a
+                            href="search.html"
+                            class="tixit-card tixit-action-card">
+
+                            <div class="tixit-card-body">
+
+                                <div class="tixit-document-icon">
+                                    ⌕
+                                </div>
+
+                                <h3 class="tixit-card-title">
+                                    ابحث في كل شيء
+                                </h3>
+
+                                <p class="tixit-card-description">
+                                    ابحث عن كلمة أو معلومة داخل جميع البيانات المحفوظة.
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                        <a
+                            href="library.html"
+                            class="tixit-card tixit-action-card">
+
+                            <div class="tixit-card-body">
+
+                                <div class="tixit-document-icon">
+                                    ▣
+                                </div>
+
+                                <h3 class="tixit-card-title">
+                                    تصفح المكتبة
+                                </h3>
+
+                                <p class="tixit-card-description">
+                                    شاهد الملفات والمعلومات المحفوظة ونظمها بسهولة.
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <section class="tixit-card tixit-how-card">
+
+                    <div class="tixit-card-header">
+
+                        <div>
+
+                            <h2 class="tixit-card-title">
+                                كيف يعمل TIXIT؟
+                            </h2>
+
+                            <p class="tixit-page-description">
+                                ثلاث خطوات بسيطة للوصول إلى معلوماتك.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-grid tixit-grid-3">
+
+                            <div class="tixit-step">
+
+                                <span class="tixit-step-number">
+                                    1
+                                </span>
+
+                                <h3>
+                                    أضف
+                                </h3>
+
+                                <p>
+                                    أدخل المعلومات أو ارفع الملفات التي تريد الاحتفاظ بها.
+                                </p>
+
+                            </div>
+
+                            <div class="tixit-step">
+
+                                <span class="tixit-step-number">
+                                    2
+                                </span>
+
+                                <h3>
+                                    احفظ
+                                </h3>
+
+                                <p>
+                                    يتم تنظيم بياناتك داخل قاعدة بيانات TIXIT على جهازك.
+                                </p>
+
+                            </div>
+
+                            <div class="tixit-step">
+
+                                <span class="tixit-step-number">
+                                    3
+                                </span>
+
+                                <h3>
+                                    ابحث
+                                </h3>
+
+                                <p>
+                                    اكتب كلمة البحث لتحصل على النتائج المرتبطة بها بسهولة.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-header">
+
+                        <div>
+
+                            <h2 class="tixit-card-title">
+                                مساحة العمل
+                            </h2>
+
+                            <p class="tixit-page-description">
+                                جميع بياناتك محفوظة ويمكن الوصول إليها من المكتبة.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="library.html"
+                            class="tixit-btn tixit-btn-secondary tixit-btn-small">
+                            عرض المكتبة
+                        </a>
+
+                    </div>
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-empty-state">
+
+                            <div class="tixit-empty-icon">
+                                ▣
+                            </div>
+
+                            <h3>
+                                ابدأ ببناء مكتبتك
+                            </h3>
+
+                            <p>
+                                لم تتم إضافة معلومات بعد، أو يمكنك فتح المكتبة
+                                لعرض العناصر الموجودة.
+                            </p>
+
+                            <a
+                                href="add.html"
+                                class="tixit-btn tixit-btn-primary">
+                                إضافة أول عنصر
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="tixit-card tixit-info-card">
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-info-row">
+
+                            <span class="tixit-info-icon">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    بياناتك تحت سيطرتك
+                                </strong>
+
+                                <p>
+                                    TIXIT مصمم للعمل محليًا داخل المتصفح،
+                                    لذلك يمكنك إدارة معلوماتك ونسخها احتياطيًا واستعادتها.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <footer class="tixit-footer">
+
+        <div>
+            <strong>TIXIT</strong>
+            <span> — مركز المعلومات الشخصي</span>
+        </div>
+
+        <div>
+            © 2026 TIXIT WÆIL
+        </div>
+
+    </footer>
+
+</div>
+
+<input
+    type="file"
+    id="tixitRestoreInput"
+    accept=".json,application/json"
+    hidden>
+
+<script src="js/database.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+(function () {
+
+    "use strict";
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function () {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .then(function () {
+                    console.log("TIXIT Service Worker فعال");
+                })
+                .catch(function (error) {
+                    console.error(
+                        "TIXIT Service Worker Error:",
+                        error
+                    );
+                });
+
+        });
+
+    }
+
+
+    const form =
+        document.getElementById(
+            "tixitHomeSearchForm"
+        );
+
+    const input =
+        document.getElementById(
+            "tixitHomeSearch"
+        );
+
+    if (!form || !input) return;
+
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const query =
+                input.value.trim();
+
+            if (!query) {
+
+                input.focus();
+
+                return;
+
+            }
+
+            const encoded =
+                encodeURIComponent(query);
+
+            window.location.href =
+                "search.html?q=" +
+                encoded;
+
+        }
+    );
+
+
+    input.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                form.requestSubmit();
+
+            }
+
+        }
+    );
+
+
+    const globalSearch =
+        document.querySelector(
+            "[data-tixit-global-search]"
+        );
+
+    if (globalSearch) {
+
+        input.addEventListener(
+            "input",
+            function () {
+
+                if (!globalSearch.value) {
+                    return;
+                }
+
+                globalSearch.value =
+                    input.value;
+
+            }
+        );
+
+    }
+
+
+    const backup =
+        document.querySelector(
+            "[data-tixit-backup]"
+        );
+
+    if (backup) {
+
+        backup.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    typeof window.exportTixitDatabase ===
+                    "function"
+                ) {
+
+                    window.exportTixitDatabase();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    const restoreButton =
+        document.querySelector(
+            "[data-tixit-restore]"
+        );
+
+    const restoreInput =
+        document.getElementById(
+            "tixitRestoreInput"
+        );
+
+    if (restoreButton && restoreInput) {
+
+        restoreButton.addEventListener(
+            "click",
+            function () {
+
+                restoreInput.click();
+
+            }
+        );
+
+
+        restoreInput.addEventListener(
+            "change",
+            function () {
+
+                const file =
+                    this.files &&
+                    this.files[0];
+
+                if (!file) return;
+
+                if (
+                    typeof window.importTixitDatabase ===
+                    "function"
+                ) {
+
+                    window.importTixitDatabase(file);
+
+                }
+
+                this.value = "";
+
+            }
+        );
+
+    }
+
+})();
+</script>
+
+</body>
+</html>

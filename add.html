@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إضافة معلومات — TIXIT</title>
+    <meta name="description" content="إضافة المعلومات والملفات إلى TIXIT">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="tixit-app" data-tixit-page="add">
+
+    <header class="tixit-header">
+
+        <div class="tixit-header-left">
+
+            <button
+                class="tixit-icon-button tixit-mobile-menu-button"
+                type="button"
+                data-tixit-menu
+                aria-label="فتح القائمة">
+                ☰
+            </button>
+
+            <a href="index.html" class="tixit-logo" data-tixit-home>
+                <span class="tixit-logo-mark">T</span>
+
+                <span>
+                    <strong class="tixit-logo-text">TIXIT</strong>
+                    <small class="tixit-logo-subtitle">مركز المعلومات</small>
+                </span>
+            </a>
+
+        </div>
+
+        <div class="tixit-global-search">
+
+            <span class="tixit-global-search-icon">⌕</span>
+
+            <input
+                type="search"
+                data-tixit-global-search
+                placeholder="ابحث في TIXIT..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                class="tixit-global-search-clear"
+                data-tixit-search-clear>
+                ×
+            </button>
+
+        </div>
+
+        <div class="tixit-header-actions">
+
+            <button
+                class="tixit-icon-button"
+                type="button"
+                data-tixit-theme
+                title="تغيير المظهر">
+                ◐
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <div class="tixit-layout">
+
+        <aside class="tixit-sidebar">
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    الرئيسية
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="index.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="home">
+                        <span class="tixit-nav-icon">⌂</span>
+                        <span class="tixit-nav-label">الرئيسية</span>
+                    </a>
+
+                    <a
+                        href="search.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="search">
+                        <span class="tixit-nav-icon">⌕</span>
+                        <span class="tixit-nav-label">البحث</span>
+                    </a>
+
+                    <a
+                        href="library.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="library">
+
+                        <span class="tixit-nav-icon">▣</span>
+                        <span class="tixit-nav-label">المكتبة</span>
+
+                        <span
+                            class="tixit-nav-count"
+                            data-tixit-stat="documents">
+                            0
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    إدارة المعلومات
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="add.html"
+                        class="tixit-nav-item active"
+                        data-tixit-nav="add">
+
+                        <span class="tixit-nav-icon">＋</span>
+                        <span class="tixit-nav-label">إضافة معلومات</span>
+
+                    </a>
+
+                    <a
+                        href="settings.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="settings">
+
+                        <span class="tixit-nav-icon">⚙</span>
+                        <span class="tixit-nav-label">الإعدادات</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="tixit-sidebar-section tixit-sidebar-bottom">
+
+                <div class="tixit-sidebar-title">
+                    البيانات
+                </div>
+
+                <div class="tixit-sidebar-actions">
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-backup>
+                        ↑ نسخة احتياطية
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-restore>
+                        ↓ استعادة
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <div
+            class="tixit-mobile-overlay"
+            data-tixit-overlay>
+        </div>
+
+
+        <main class="tixit-main">
+
+            <div class="tixit-container">
+
+                <div class="tixit-page-header">
+
+                    <div>
+
+                        <h1 class="tixit-page-title">
+                            إضافة معلومات
+                        </h1>
+
+                        <p class="tixit-page-description">
+                            أضف نصًا أو ملفًا أو مستند PDF إلى مكتبة TIXIT.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- نوع المحتوى -->
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-header">
+
+                        <h2 class="tixit-card-title">
+                            نوع المحتوى
+                        </h2>
+
+                    </div>
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-grid tixit-grid-3">
+
+                            <button
+                                type="button"
+                                class="tixit-type-card active"
+                                data-add-type="text">
+
+                                <span class="tixit-document-icon">
+                                    TXT
+                                </span>
+
+                                <strong>
+                                    نص
+                                </strong>
+
+                                <small>
+                                    كتابة المعلومات مباشرة
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="tixit-type-card"
+                                data-add-type="file">
+
+                                <span class="tixit-document-icon">
+                                    FILE
+                                </span>
+
+                                <strong>
+                                    ملف
+                                </strong>
+
+                                <small>
+                                    رفع ملف من الجهاز
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="tixit-type-card"
+                                data-add-type="pdf">
+
+                                <span class="tixit-document-icon">
+                                    PDF
+                                </span>
+
+                                <strong>
+                                    PDF
+                                </strong>
+
+                                <small>
+                                    رفع مستند PDF
+                                </small>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <form
+                    id="tixitAddForm"
+                    novalidate>
+
+
+                    <!-- المعلومات الأساسية -->
+
+                    <section class="tixit-card">
+
+                        <div class="tixit-card-header">
+
+                            <h2 class="tixit-card-title">
+                                معلومات العنصر
+                            </h2>
+
+                        </div>
+
+                        <div class="tixit-card-body">
+
+                            <div class="tixit-form-grid">
+
+                                <div class="tixit-form-group">
+
+                                    <label for="tixitTitle">
+                                        العنوان
+                                    </label>
+
+                                    <input
+                                        id="tixitTitle"
+                                        name="title"
+                                        class="tixit-input"
+                                        type="text"
+                                        placeholder="مثال: ملاحظات الرياضيات"
+                                        maxlength="200"
+                                        required>
+
+                                </div>
+
+
+                                <div class="tixit-form-group">
+
+                                    <label for="tixitCategory">
+                                        التصنيف
+                                    </label>
+
+                                    <input
+                                        id="tixitCategory"
+                                        name="category"
+                                        class="tixit-input"
+                                        type="text"
+                                        placeholder="مثال: دراسة"
+                                        maxlength="100">
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="tixit-form-group">
+
+                                <label for="tixitDescription">
+                                    الوصف
+                                </label>
+
+                                <textarea
+                                    id="tixitDescription"
+                                    name="description"
+                                    class="tixit-textarea"
+                                    rows="3"
+                                    maxlength="1000"
+                                    placeholder="اكتب وصفًا مختصرًا للمحتوى..."></textarea>
+
+                            </div>
+
+
+                            <div class="tixit-form-group">
+
+                                <label for="tixitTags">
+                                    الوسوم
+                                </label>
+
+                                <input
+                                    id="tixitTags"
+                                    name="tags"
+                                    class="tixit-input"
+                                    type="text"
+                                    maxlength="500"
+                                    placeholder="مثال: رياضيات، درس، امتحان">
+
+                                <small class="tixit-help-text">
+                                    افصل بين الوسوم باستخدام الفاصلة.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- النص -->
+
+                    <section
+                        class="tixit-card"
+                        id="tixitTextSection">
+
+                        <div class="tixit-card-header">
+
+                            <h2 class="tixit-card-title">
+                                المحتوى النصي
+                            </h2>
+
+                        </div>
+
+                        <div class="tixit-card-body">
+
+                            <div class="tixit-form-group">
+
+                                <label for="tixitContent">
+                                    النص
+                                </label>
+
+                                <textarea
+                                    id="tixitContent"
+                                    name="content"
+                                    class="tixit-textarea tixit-textarea-large"
+                                    placeholder="اكتب أو الصق المعلومات هنا..."></textarea>
+
+                                <div class="tixit-character-counter">
+
+                                    <span id="tixitCharCount">
+                                        0
+                                    </span>
+
+                                    حرف
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- الملفات -->
+
+                    <section
+                        class="tixit-card"
+                        id="tixitFileSection"
+                        hidden>
+
+                        <div class="tixit-card-header">
+
+                            <h2 class="tixit-card-title">
+                                رفع الملف
+                            </h2>
+
+                        </div>
+
+                        <div class="tixit-card-body">
+
+                            <label
+                                class="tixit-dropzone"
+                                for="tixitFile">
+
+                                <div class="tixit-dropzone-icon">
+                                    ↑
+                                </div>
+
+                                <strong>
+                                    اختر ملفًا من جهازك
+                                </strong>
+
+                                <span>
+                                    اضغط هنا لاختيار الملف
+                                </span>
+
+                                <input
+                                    type="file"
+                                    id="tixitFile"
+                                    name="file"
+                                    hidden>
+
+                            </label>
+
+
+                            <div
+                                id="tixitSelectedFile"
+                                class="tixit-file-list"
+                                hidden>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- الخيارات -->
+
+                    <section class="tixit-card">
+
+                        <div class="tixit-card-header">
+
+                            <h2 class="tixit-card-title">
+                                خيارات إضافية
+                            </h2>
+
+                        </div>
+
+                        <div class="tixit-card-body">
+
+                            <label class="tixit-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="tixitFavorite"
+                                    name="favorite">
+
+                                <span>
+                                    إضافة إلى المفضلة
+                                </span>
+
+                            </label>
+
+
+                            <label class="tixit-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="tixitPinned"
+                                    name="pinned">
+
+                                <span>
+                                    تثبيت العنصر في أعلى المكتبة
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- الحفظ -->
+
+                    <section class="tixit-card">
+
+                        <div class="tixit-card-body">
+
+                            <div class="tixit-form-actions">
+
+                                <button
+                                    type="reset"
+                                    id="tixitResetForm"
+                                    class="tixit-btn tixit-btn-secondary">
+                                    مسح النموذج
+                                </button>
+
+
+                                <button
+                                    type="submit"
+                                    id="tixitSaveButton"
+                                    class="tixit-btn tixit-btn-primary">
+                                    حفظ في TIXIT
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <footer class="tixit-footer">
+
+        <div>
+            <strong>TIXIT</strong>
+            <span> — مركز المعلومات الشخصي</span>
+        </div>
+
+        <div>
+            © 2026 TIXIT
+        </div>
+
+    </footer>
+
+</div>
+
+
+<input
+    type="file"
+    id="tixitRestoreInput"
+    accept=".json,application/json"
+    hidden>
+
+
+<script src="js/database.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+(function () {
+
+    "use strict";
+
+
+    const form =
+        document.getElementById("tixitAddForm");
+
+    const title =
+        document.getElementById("tixitTitle");
+
+    const category =
+        document.getElementById("tixitCategory");
+
+    const description =
+        document.getElementById("tixitDescription");
+
+    const tags =
+        document.getElementById("tixitTags");
+
+    const content =
+        document.getElementById("tixitContent");
+
+    const favorite =
+        document.getElementById("tixitFavorite");
+
+    const pinned =
+        document.getElementById("tixitPinned");
+
+    const file =
+        document.getElementById("tixitFile");
+
+    const textSection =
+        document.getElementById("tixitTextSection");
+
+    const fileSection =
+        document.getElementById("tixitFileSection");
+
+    const selectedFile =
+        document.getElementById("tixitSelectedFile");
+
+    const charCount =
+        document.getElementById("tixitCharCount");
+
+    const saveButton =
+        document.getElementById("tixitSaveButton");
+
+
+    let selectedType = "text";
+
+
+    function updateCharacterCount() {
+
+        charCount.textContent =
+            content.value.length;
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function formatBytes(bytes) {
+
+        const size =
+            Number(bytes) || 0;
+
+
+        if (size === 0) {
+            return "0 بايت";
+        }
+
+
+        const units = [
+            "بايت",
+            "KB",
+            "MB",
+            "GB"
+        ];
+
+
+        let value = size;
+        let index = 0;
+
+
+        while (
+            value >= 1024 &&
+            index < units.length - 1
+        ) {
+
+            value /= 1024;
+            index++;
+
+        }
+
+
+        return (
+            Math.round(value * 100) / 100 +
+            " " +
+            units[index]
+        );
+
+    }
+
+
+    function setType(type) {
+
+        selectedType = type;
+
+
+        document
+            .querySelectorAll("[data-add-type]")
+            .forEach(function (button) {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.addType === type
+                );
+
+            });
+
+
+        if (type === "text") {
+
+            textSection.hidden = false;
+            fileSection.hidden = true;
+
+            content.required = true;
+
+        } else {
+
+            textSection.hidden = true;
+            fileSection.hidden = false;
+
+            content.required = false;
+
+        }
+
+
+        file.value = "";
+
+        selectedFile.hidden = true;
+        selectedFile.innerHTML = "";
+
+
+        if (type === "pdf") {
+
+            file.accept =
+                "application/pdf,.pdf";
+
+        } else {
+
+            file.accept = "";
+
+        }
+
+    }
+
+
+    async function fileToDataURL(selected) {
+
+        return new Promise(function (resolve, reject) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function () {
+                    resolve(reader.result);
+                };
+
+
+            reader.onerror =
+                function () {
+                    reject(
+                        new Error(
+                            "تعذر قراءة الملف."
+                        )
+                    );
+                };
+
+
+            reader.readAsDataURL(selected);
+
+        });
+
+    }
+
+
+    async function readTextFile(selected) {
+
+        return new Promise(function (resolve, reject) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function () {
+                    resolve(
+                        String(reader.result || "")
+                    );
+                };
+
+
+            reader.onerror =
+                function () {
+                    reject(
+                        new Error(
+                            "تعذر قراءة الملف النصي."
+                        )
+                    );
+                };
+
+
+            reader.readAsText(selected);
+
+        });
+
+    }
+
+
+    function createDocument(data) {
+
+        const now =
+            new Date().toISOString();
+
+
+        const generatedId =
+            typeof window.generateTixitId === "function"
+                ? window.generateTixitId()
+                : (
+                    "tixit-" +
+                    Date.now() +
+                    "-" +
+                    Math.random()
+                        .toString(36)
+                        .slice(2, 10)
+                );
+
+
+        return {
+
+            id:
+                generatedId,
+
+            title:
+                data.title,
+
+            name:
+                data.title,
+
+            category:
+                data.category,
+
+            description:
+                data.description,
+
+            tags:
+                data.tags,
+
+            content:
+                data.content || "",
+
+            text:
+                data.content || "",
+
+            type:
+                data.type,
+
+            favorite:
+                Boolean(data.favorite),
+
+            pinned:
+                Boolean(data.pinned),
+
+            fileName:
+                data.fileName || "",
+
+            fileType:
+                data.fileType || data.type || "",
+
+            mimeType:
+                data.mimeType || "",
+
+            fileSize:
+                Number(data.fileSize) || 0,
+
+            fileData:
+                data.fileData || "",
+
+            createdAt:
+                now,
+
+            updatedAt:
+                now
+
+        };
+
+    }
+
+
+    async function saveDocument(document) {
+
+        if (
+            typeof window.addTixitDocument ===
+            "function"
+        ) {
+
+            return await window.addTixitDocument(
+                document
+            );
+
+        }
+
+
+        if (
+            typeof window.saveTixitDocument ===
+            "function"
+        ) {
+
+            return await window.saveTixitDocument(
+                document
+            );
+
+        }
+
+
+        throw new Error(
+            "لم يتم العثور على نظام قاعدة بيانات TIXIT."
+        );
+
+    }
+
+
+    document
+        .querySelectorAll("[data-add-type]")
+        .forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    setType(
+                        this.dataset.addType
+                    );
+
+                }
+            );
+
+        });
+
+
+    content.addEventListener(
+        "input",
+        updateCharacterCount
+    );
+
+
+    file.addEventListener(
+        "change",
+        function () {
+
+            const selected =
+                this.files &&
+                this.files[0];
+
+
+            if (!selected) {
+
+                selectedFile.hidden = true;
+                selectedFile.innerHTML = "";
+
+                return;
+
+            }
+
+
+            if (
+                selectedType === "pdf" &&
+                selected.type !== "application/pdf" &&
+                !selected.name
+                    .toLowerCase()
+                    .endsWith(".pdf")
+            ) {
+
+                window.alert(
+                    "يرجى اختيار ملف PDF."
+                );
+
+                this.value = "";
+
+                return;
+
+            }
+
+
+            selectedFile.hidden = false;
+
+
+            selectedFile.innerHTML = `
+
+                <div class="tixit-document">
+
+                    <div class="tixit-document-icon">
+                        ${
+                            selectedType === "pdf"
+                                ? "PDF"
+                                : "FILE"
+                        }
+                    </div>
+
+                    <div class="tixit-document-main">
+
+                        <strong class="tixit-document-title">
+                            ${escapeHTML(selected.name)}
+                        </strong>
+
+                        <span class="tixit-document-meta">
+                            ${formatBytes(selected.size)}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    form.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const titleValue =
+                title.value.trim();
+
+
+            if (!titleValue) {
+
+                window.alert(
+                    "يرجى إدخال عنوان للمعلومات."
+                );
+
+                title.focus();
+
+                return;
+
+            }
+
+
+            if (
+                selectedType === "text" &&
+                !content.value.trim()
+            ) {
+
+                window.alert(
+                    "يرجى إدخال المحتوى النصي."
+                );
+
+                content.focus();
+
+                return;
+
+            }
+
+
+            const selected =
+                file.files &&
+                file.files[0];
+
+
+            if (
+                selectedType !== "text" &&
+                !selected
+            ) {
+
+                window.alert(
+                    "يرجى اختيار ملف أولًا."
+                );
+
+                return;
+
+            }
+
+
+            saveButton.disabled = true;
+
+            saveButton.textContent =
+                "جاري الحفظ...";
+
+
+            try {
+
+                let textContent =
+                    selectedType === "text"
+                        ? content.value
+                        : "";
+
+
+                let fileData = "";
+
+
+                if (selected) {
+
+                    /*
+                     * نحفظ الملف نفسه كـ Data URL.
+                     * هذا يسمح لـ TIXIT باسترجاعه لاحقًا
+                     * من IndexedDB.
+                     */
+
+                    fileData =
+                        await fileToDataURL(
+                            selected
+                        );
+
+
+                    /*
+                     * إذا كان الملف نصيًا، نحفظ
+                     * محتواه أيضًا ليصبح قابلًا للبحث.
+                     */
+
+                    if (
+                        selectedType === "file" &&
+                        (
+                            selected.type.startsWith("text/") ||
+                            /\.(txt|csv|json|xml|md|html|css|js)$/i
+                                .test(selected.name)
+                        )
+                    ) {
+
+                        try {
+
+                            textContent =
+                                await readTextFile(
+                                    selected
+                                );
+
+                        } catch (textError) {
+
+                            console.warn(
+                                "تعذر استخراج النص:",
+                                textError
+                            );
+
+                        }
+
+                    }
+
+                }
+
+
+                const document =
+                    createDocument({
+
+                        title:
+                            titleValue,
+
+                        category:
+                            category.value.trim(),
+
+                        description:
+                            description.value.trim(),
+
+                        tags:
+                            tags.value
+                                .split(",")
+                                .map(
+                                    value =>
+                                        value.trim()
+                                )
+                                .filter(Boolean),
+
+                        content:
+                            textContent,
+
+                        type:
+                            selectedType,
+
+                        favorite:
+                            favorite.checked,
+
+                        pinned:
+                            pinned.checked,
+
+                        fileName:
+                            selected
+                                ? selected.name
+                                : "",
+
+                        fileType:
+                            selectedType,
+
+                        mimeType:
+                            selected
+                                ? selected.type
+                                : "text/plain",
+
+                        fileSize:
+                            selected
+                                ? selected.size
+                                : 0,
+
+                        fileData:
+                            fileData
+
+                    });
+
+
+                await saveDocument(
+                    document
+                );
+
+
+                window.alert(
+                    "تم حفظ المعلومات بنجاح في TIXIT."
+                );
+
+
+                window.location.href =
+                    "library.html";
+
+
+            } catch (error) {
+
+                console.error(
+                    "TIXIT Add Error:",
+                    error
+                );
+
+
+                window.alert(
+                    "تعذر حفظ المعلومات.\n\n" +
+                    "الخطأ: " +
+                    (error.message || "خطأ غير معروف")
+                );
+
+
+            } finally {
+
+                saveButton.disabled = false;
+
+                saveButton.textContent =
+                    "حفظ في TIXIT";
+
+            }
+
+        }
+    );
+
+
+    document
+        .getElementById("tixitResetForm")
+        .addEventListener(
+            "click",
+            function () {
+
+                setTimeout(
+                    function () {
+
+                        setType("text");
+
+                        updateCharacterCount();
+
+                        selectedFile.hidden = true;
+
+                        selectedFile.innerHTML = "";
+
+                    },
+                    0
+                );
+
+            }
+        );
+
+
+    setType("text");
+
+    updateCharacterCount();
+
+
+})();
+</script>
+
+</body>
+</html>

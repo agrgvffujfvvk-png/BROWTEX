@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المكتبة — TIXIT</title>
+    <meta name="description" content="مكتبة ملفات ومعلومات TIXIT">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="tixit-app" data-tixit-page="library">
+
+    <header class="tixit-header">
+
+        <div class="tixit-header-left">
+
+            <button
+                class="tixit-icon-button tixit-mobile-menu-button"
+                type="button"
+                data-tixit-menu
+                aria-label="فتح القائمة">
+                ☰
+            </button>
+
+            <a href="index.html" class="tixit-logo" data-tixit-home>
+
+                <span class="tixit-logo-mark">
+                    T
+                </span>
+
+                <span>
+
+                    <strong class="tixit-logo-text">
+                        TIXIT
+                    </strong>
+
+                    <small class="tixit-logo-subtitle">
+                        مركز المعلومات
+                    </small>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="tixit-global-search">
+
+            <span class="tixit-global-search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="search"
+                data-tixit-global-search
+                placeholder="ابحث في TIXIT..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                class="tixit-global-search-clear"
+                data-tixit-search-clear>
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="tixit-header-actions">
+
+            <button
+                class="tixit-icon-button"
+                type="button"
+                data-tixit-theme
+                title="تغيير المظهر">
+                ◐
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <div class="tixit-layout">
+
+        <aside class="tixit-sidebar">
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    الرئيسية
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="index.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="home">
+
+                        <span class="tixit-nav-icon">
+                            ⌂
+                        </span>
+
+                        <span class="tixit-nav-label">
+                            الرئيسية
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="search.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="search">
+
+                        <span class="tixit-nav-icon">
+                            ⌕
+                        </span>
+
+                        <span class="tixit-nav-label">
+                            البحث
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="library.html"
+                        class="tixit-nav-item active"
+                        data-tixit-nav="library">
+
+                        <span class="tixit-nav-icon">
+                            ▣
+                        </span>
+
+                        <span class="tixit-nav-label">
+                            المكتبة
+                        </span>
+
+                        <span
+                            class="tixit-nav-count"
+                            data-tixit-stat="documents">
+                            0
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="tixit-sidebar-section">
+
+                <div class="tixit-sidebar-title">
+                    إدارة المعلومات
+                </div>
+
+                <nav class="tixit-nav">
+
+                    <a
+                        href="add.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="add">
+
+                        <span class="tixit-nav-icon">
+                            ＋
+                        </span>
+
+                        <span class="tixit-nav-label">
+                            إضافة معلومات
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="settings.html"
+                        class="tixit-nav-item"
+                        data-tixit-nav="settings">
+
+                        <span class="tixit-nav-icon">
+                            ⚙
+                        </span>
+
+                        <span class="tixit-nav-label">
+                            الإعدادات
+                        </span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="tixit-sidebar-section tixit-sidebar-bottom">
+
+                <div class="tixit-sidebar-title">
+                    البيانات
+                </div>
+
+                <div class="tixit-sidebar-actions">
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-backup>
+                        ↑ نسخة احتياطية
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-tixit-restore>
+                        ↓ استعادة
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <div
+            class="tixit-mobile-overlay"
+            data-tixit-overlay>
+        </div>
+
+
+        <main class="tixit-main">
+
+            <div class="tixit-container">
+
+
+                <!-- رأس الصفحة -->
+
+                <div class="tixit-page-header">
+
+                    <div>
+
+                        <h1 class="tixit-page-title">
+                            المكتبة
+                        </h1>
+
+                        <p class="tixit-page-description">
+                            جميع المعلومات والملفات التي حفظتها في TIXIT.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="add.html"
+                        class="tixit-btn tixit-btn-primary">
+                        ＋ إضافة عنصر
+                    </a>
+
+                </div>
+
+
+                <!-- أدوات البحث والفلترة -->
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-body">
+
+                        <div class="tixit-toolbar">
+
+                            <div class="tixit-toolbar-group tixit-library-search">
+
+                                <span class="tixit-global-search-icon">
+                                    ⌕
+                                </span>
+
+                                <input
+                                    type="search"
+                                    id="tixitLibrarySearch"
+                                    class="tixit-search-input"
+                                    placeholder="البحث داخل المكتبة..."
+                                    autocomplete="off">
+
+                            </div>
+
+
+                            <div class="tixit-toolbar-group">
+
+                                <select
+                                    id="tixitLibraryType"
+                                    class="tixit-select">
+
+                                    <option value="all">
+                                        كل الأنواع
+                                    </option>
+
+                                    <option value="text">
+                                        النصوص
+                                    </option>
+
+                                    <option value="pdf">
+                                        PDF
+                                    </option>
+
+                                    <option value="file">
+                                        الملفات
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="tixit-toolbar-group">
+
+                                <select
+                                    id="tixitLibrarySort"
+                                    class="tixit-select">
+
+                                    <option value="newest">
+                                        الأحدث أولًا
+                                    </option>
+
+                                    <option value="oldest">
+                                        الأقدم أولًا
+                                    </option>
+
+                                    <option value="az">
+                                        الاسم: أ ← ي
+                                    </option>
+
+                                    <option value="za">
+                                        الاسم: ي ← أ
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tixit-toolbar">
+
+                            <label class="tixit-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="tixitLibraryFavorites">
+
+                                <span>
+                                    المفضلة فقط
+                                </span>
+
+                            </label>
+
+
+                            <label class="tixit-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="tixitLibraryPinned">
+
+                                <span>
+                                    المثبتة فقط
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- الإحصائيات -->
+
+                <section class="tixit-stats">
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            العناصر
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            id="tixitLibraryTotal">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            في المكتبة
+                        </span>
+
+                    </div>
+
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            PDF
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            id="tixitLibraryPDF">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            ملفات PDF
+                        </span>
+
+                    </div>
+
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            نصوص
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            id="tixitLibraryText">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            محتوى نصي
+                        </span>
+
+                    </div>
+
+
+                    <div class="tixit-stat">
+
+                        <span class="tixit-stat-label">
+                            المفضلة
+                        </span>
+
+                        <strong
+                            class="tixit-stat-value"
+                            id="tixitLibraryFavoritesCount">
+                            0
+                        </strong>
+
+                        <span class="tixit-stat-extra">
+                            عناصر مميزة
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- القائمة -->
+
+                <section class="tixit-card">
+
+                    <div class="tixit-card-header">
+
+                        <div>
+
+                            <h2 class="tixit-card-title">
+                                العناصر المحفوظة
+                            </h2>
+
+                            <p
+                                class="tixit-page-description"
+                                id="tixitLibraryResultCount">
+                                جاري التحميل...
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="tixitRefreshLibrary"
+                            class="tixit-btn tixit-btn-secondary tixit-btn-small">
+                            ↻ تحديث
+                        </button>
+
+                    </div>
+
+
+                    <div class="tixit-card-body">
+
+                        <div
+                            id="tixitLibraryList"
+                            class="tixit-list">
+                        </div>
+
+
+                        <div
+                            id="tixitLibraryEmpty"
+                            class="tixit-empty-state"
+                            hidden>
+
+                            <div class="tixit-empty-icon">
+                                ▣
+                            </div>
+
+                            <h3>
+                                المكتبة فارغة
+                            </h3>
+
+                            <p>
+                                لم تتم إضافة أي معلومات أو ملفات حتى الآن.
+                            </p>
+
+                            <a
+                                href="add.html"
+                                class="tixit-btn tixit-btn-primary">
+                                ＋ إضافة أول عنصر
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <footer class="tixit-footer">
+
+        <div>
+            <strong>TIXIT</strong>
+            <span> — مركز المعلومات الشخصي</span>
+        </div>
+
+        <div>
+            © 2026 TIXIT
+        </div>
+
+    </footer>
+
+</div>
+
+
+<input
+    type="file"
+    id="tixitRestoreInput"
+    accept=".json,application/json"
+    hidden>
+
+
+<script src="js/database.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+(function () {
+
+    "use strict";
+
+
+    const list =
+        document.getElementById("tixitLibraryList");
+
+    const empty =
+        document.getElementById("tixitLibraryEmpty");
+
+    const search =
+        document.getElementById("tixitLibrarySearch");
+
+    const type =
+        document.getElementById("tixitLibraryType");
+
+    const sort =
+        document.getElementById("tixitLibrarySort");
+
+    const favorites =
+        document.getElementById("tixitLibraryFavorites");
+
+    const pinned =
+        document.getElementById("tixitLibraryPinned");
+
+    const count =
+        document.getElementById("tixitLibraryResultCount");
+
+    const total =
+        document.getElementById("tixitLibraryTotal");
+
+    const pdf =
+        document.getElementById("tixitLibraryPDF");
+
+    const text =
+        document.getElementById("tixitLibraryText");
+
+    const favCount =
+        document.getElementById("tixitLibraryFavoritesCount");
+
+    const refresh =
+        document.getElementById("tixitRefreshLibrary");
+
+
+    let documents = [];
+
+
+    function escapeHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function normalize(value) {
+
+        return String(value || "")
+            .toLowerCase()
+            .trim();
+
+    }
+
+
+    function getTitle(item) {
+
+        return (
+            item.title ||
+            item.name ||
+            item.fileName ||
+            "عنصر بدون عنوان"
+        );
+
+    }
+
+
+    function getDescription(item) {
+
+        return (
+            item.description ||
+            item.excerpt ||
+            item.content ||
+            item.text ||
+            item.extractedText ||
+            "لا يوجد وصف أو معاينة لهذا العنصر."
+        );
+
+    }
+
+
+    function getContent(item) {
+
+        return [
+            item.title,
+            item.name,
+            item.description,
+            item.content,
+            item.text,
+            item.extractedText,
+            item.category,
+            Array.isArray(item.tags)
+                ? item.tags.join(" ")
+                : item.tags,
+            item.fileName
+        ]
+            .filter(Boolean)
+            .join(" ");
+
+    }
+
+
+    function getId(item) {
+
+        return (
+            item.id ||
+            item.documentId ||
+            ""
+        );
+
+    }
+
+
+    function getType(item) {
+
+        const raw =
+            String(
+                item.type ||
+                item.fileType ||
+                item.kind ||
+                ""
+            ).toLowerCase();
+
+
+        const mime =
+            String(
+                item.mimeType ||
+                ""
+            ).toLowerCase();
+
+
+        const fileName =
+            String(
+                item.fileName ||
+                ""
+            ).toLowerCase();
+
+
+        if (
+            raw.includes("pdf") ||
+            mime.includes("pdf") ||
+            fileName.endsWith(".pdf")
+        ) {
+
+            return "pdf";
+
+        }
+
+
+        if (
+            raw.includes("text") ||
+            raw.includes("txt") ||
+            raw.includes("note")
+        ) {
+
+            return "text";
+
+        }
+
+
+        return "file";
+
+    }
+
+
+    function isFavorite(item) {
+
+        return Boolean(
+            item.favorite ||
+            item.isFavorite
+        );
+
+    }
+
+
+    function isPinned(item) {
+
+        return Boolean(
+            item.pinned ||
+            item.isPinned
+        );
+
+    }
+
+
+    function getDate(item) {
+
+        return (
+            item.updatedAt ||
+            item.createdAt ||
+            item.date ||
+            0
+        );
+
+    }
+
+
+    function dateValue(item) {
+
+        const value =
+            new Date(
+                getDate(item)
+            ).getTime();
+
+
+        return Number.isFinite(value)
+            ? value
+            : 0;
+
+    }
+
+
+    function formatDate(value) {
+
+        if (!value) {
+            return "بدون تاريخ";
+        }
+
+
+        const date =
+            new Date(value);
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return "بدون تاريخ";
+
+        }
+
+
+        return date.toLocaleDateString(
+            "ar-EG",
+            {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            }
+        );
+
+    }
+
+
+    async function loadDocuments() {
+
+        list.innerHTML = `
+            <div class="tixit-loading">
+                جاري تحميل المكتبة...
+            </div>
+        `;
+
+        empty.hidden = true;
+
+
+        try {
+
+            if (
+                typeof window.getAllTixitDocuments ===
+                "function"
+            ) {
+
+                documents =
+                    await window.getAllTixitDocuments();
+
+            } else if (
+                typeof window.getTixitDocuments ===
+                "function"
+            ) {
+
+                documents =
+                    await window.getTixitDocuments();
+
+            } else {
+
+                throw new Error(
+                    "دالة قراءة المكتبة غير موجودة."
+                );
+
+            }
+
+
+            if (!Array.isArray(documents)) {
+                documents = [];
+            }
+
+
+            render();
+
+        } catch (error) {
+
+            console.error(
+                "TIXIT Library Error:",
+                error
+            );
+
+
+            documents = [];
+
+
+            list.innerHTML = `
+
+                <div class="tixit-empty-state">
+
+                    <div class="tixit-empty-icon">
+                        !
+                    </div>
+
+                    <h3>
+                        تعذر تحميل المكتبة
+                    </h3>
+
+                    <p>
+                        حدث خطأ أثناء قراءة قاعدة بيانات TIXIT.
+                    </p>
+
+                </div>
+
+            `;
+
+            count.textContent =
+                "تعذر تحميل البيانات.";
+
+        }
+
+    }
+
+
+    function filteredDocuments() {
+
+        let result =
+            [...documents];
+
+
+        const query =
+            normalize(search.value);
+
+
+        if (query) {
+
+            result =
+                result.filter(function (item) {
+
+                    return normalize(
+                        getContent(item)
+                    ).includes(query);
+
+                });
+
+        }
+
+
+        if (type.value !== "all") {
+
+            result =
+                result.filter(function (item) {
+
+                    return (
+                        getType(item) ===
+                        type.value
+                    );
+
+                });
+
+        }
+
+
+        if (favorites.checked) {
+
+            result =
+                result.filter(
+                    isFavorite
+                );
+
+        }
+
+
+        if (pinned.checked) {
+
+            result =
+                result.filter(
+                    isPinned
+                );
+
+        }
+
+
+        switch (sort.value) {
+
+            case "oldest":
+
+                result.sort(function (a, b) {
+
+                    return (
+                        dateValue(a) -
+                        dateValue(b)
+                    );
+
+                });
+
+                break;
+
+
+            case "az":
+
+                result.sort(function (a, b) {
+
+                    return getTitle(a)
+                        .localeCompare(
+                            getTitle(b),
+                            "ar"
+                        );
+
+                });
+
+                break;
+
+
+            case "za":
+
+                result.sort(function (a, b) {
+
+                    return getTitle(b)
+                        .localeCompare(
+                            getTitle(a),
+                            "ar"
+                        );
+
+                });
+
+                break;
+
+
+            default:
+
+                result.sort(function (a, b) {
+
+                    /*
+                     * المثبت يظهر أولًا،
+                     * ثم الأحدث.
+                     */
+
+                    if (
+                        isPinned(a) !==
+                        isPinned(b)
+                    ) {
+
+                        return isPinned(b)
+                            ? 1
+                            : -1;
+
+                    }
+
+
+                    return (
+                        dateValue(b) -
+                        dateValue(a)
+                    );
+
+                });
+
+        }
+
+
+        return result;
+
+    }
+
+
+    function render() {
+
+        const result =
+            filteredDocuments();
+
+
+        total.textContent =
+            documents.length;
+
+
+        pdf.textContent =
+            documents.filter(
+                function (item) {
+
+                    return (
+                        getType(item) ===
+                        "pdf"
+                    );
+
+                }
+            ).length;
+
+
+        text.textContent =
+            documents.filter(
+                function (item) {
+
+                    return (
+                        getType(item) ===
+                        "text"
+                    );
+
+                }
+            ).length;
+
+
+        favCount.textContent =
+            documents.filter(
+                isFavorite
+            ).length;
+
+
+        count.textContent =
+            result.length === 0
+                ? "لا توجد نتائج"
+                : result.length === 1
+                    ? "عنصر واحد"
+                    : result.length +
+                      " عناصر";
+
+
+        if (!result.length) {
+
+            list.innerHTML = "";
+
+            empty.hidden = false;
+
+            return;
+
+        }
+
+
+        empty.hidden = true;
+
+
+        list.innerHTML =
+            result
+                .map(
+                    renderItem
+                )
+                .join("");
+
+
+        attachActions();
+
+    }
+
+
+    function renderItem(item) {
+
+        const id =
+            getId(item);
+
+
+        const title =
+            getTitle(item);
+
+
+        const description =
+            String(
+                getDescription(item)
+            ).slice(0, 300);
+
+
+        const itemType =
+            getType(item);
+
+
+        const favorite =
+            isFavorite(item);
+
+
+        const itemPinned =
+            isPinned(item);
+
+
+        let icon =
+            "FILE";
+
+
+        if (itemType === "pdf") {
+            icon = "PDF";
+        }
+
+
+        if (itemType === "text") {
+            icon = "TXT";
+        }
+
+
+        return `
+
+            <article
+                class="tixit-document"
+                data-document-id="${escapeHTML(id)}">
+
+
+                <div class="tixit-document-icon">
+                    ${icon}
+                </div>
+
+
+                <div class="tixit-document-main">
+
+                    <h3 class="tixit-document-title">
+                        ${escapeHTML(title)}
+                    </h3>
+
+
+                    <div class="tixit-document-meta">
+
+                        <span class="tixit-badge">
+                            ${escapeHTML(
+                                itemType.toUpperCase()
+                            )}
+                        </span>
+
+
+                        ${
+                            itemPinned
+                                ? `
+                                    <span class="tixit-badge">
+                                        مثبت
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+
+                        ${
+                            favorite
+                                ? `
+                                    <span class="tixit-badge">
+                                        مفضلة
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+
+                        ${
+                            item.category
+                                ? `
+                                    <span>
+                                        ${escapeHTML(
+                                            item.category
+                                        )}
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+
+                        <span>
+                            ${escapeHTML(
+                                formatDate(
+                                    getDate(item)
+                                )
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <p class="tixit-document-description">
+
+                        ${escapeHTML(
+                            description
+                        )}
+
+                    </p>
+
+
+                    ${
+                        item.fileName
+                            ? `
+                                <small>
+                                    📎
+                                    ${escapeHTML(
+                                        item.fileName
+                                    )}
+                                </small>
+                              `
+                            : ""
+                    }
+
+                </div>
+
+
+                <div class="tixit-document-actions">
+
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-primary tixit-btn-small"
+                        data-library-view="${escapeHTML(id)}">
+
+                        فتح
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-library-favorite="${escapeHTML(id)}"
+                        title="تغيير المفضلة">
+
+                        ${
+                            favorite
+                                ? "★"
+                                : "☆"
+                        }
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-secondary tixit-btn-small"
+                        data-library-pin="${escapeHTML(id)}">
+
+                        ${
+                            itemPinned
+                                ? "إلغاء التثبيت"
+                                : "تثبيت"
+                        }
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tixit-btn tixit-btn-danger tixit-btn-small"
+                        data-library-delete="${escapeHTML(id)}">
+
+                        حذف
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    function findDocument(id) {
+
+        return documents.find(
+            function (item) {
+
+                return (
+                    String(
+                        getId(item)
+                    ) ===
+                    String(id)
+                );
+
+            }
+        );
+
+    }
+
+
+    function attachActions() {
+
+
+        document
+            .querySelectorAll(
+                "[data-library-view]"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const id =
+                                this.dataset
+                                    .libraryView;
+
+
+                            if (!id) {
+                                return;
+                            }
+
+
+                            window.location.href =
+                                "viewer.html?id=" +
+                                encodeURIComponent(
+                                    id
+                                );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                "[data-library-favorite]"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        async function () {
+
+                            const id =
+                                this.dataset
+                                    .libraryFavorite;
+
+
+                            const item =
+                                findDocument(id);
+
+
+                            if (!item) {
+                                return;
+                            }
+
+
+                            try {
+
+                                if (
+                                    typeof window.toggleTixitFavorite ===
+                                    "function"
+                                ) {
+
+                                    await window.toggleTixitFavorite(
+                                        id,
+                                        !isFavorite(item)
+                                    );
+
+                                } else {
+
+                                    item.favorite =
+                                        !isFavorite(item);
+
+                                }
+
+
+                                await loadDocuments();
+
+                            } catch (error) {
+
+                                console.error(
+                                    error
+                                );
+
+                                window.alert(
+                                    "تعذر تغيير حالة المفضلة."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                "[data-library-pin]"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        async function () {
+
+                            const id =
+                                this.dataset
+                                    .libraryPin;
+
+
+                            const item =
+                                findDocument(id);
+
+
+                            if (!item) {
+                                return;
+                            }
+
+
+                            try {
+
+                                if (
+                                    typeof window.toggleTixitPin ===
+                                    "function"
+                                ) {
+
+                                    await window.toggleTixitPin(
+                                        id,
+                                        !isPinned(item)
+                                    );
+
+                                } else {
+
+                                    item.pinned =
+                                        !isPinned(item);
+
+                                }
+
+
+                                await loadDocuments();
+
+                            } catch (error) {
+
+                                console.error(
+                                    error
+                                );
+
+                                window.alert(
+                                    "تعذر تغيير حالة التثبيت."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                "[data-library-delete]"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        async function () {
+
+                            const id =
+                                this.dataset
+                                    .libraryDelete;
+
+
+                            const item =
+                                findDocument(id);
+
+
+                            if (!item) {
+                                return;
+                            }
+
+
+                            const confirmed =
+                                window.confirm(
+                                    "هل تريد حذف هذا العنصر نهائيًا؟"
+                                );
+
+
+                            if (!confirmed) {
+                                return;
+                            }
+
+
+                            try {
+
+                                if (
+                                    typeof window.deleteTixitDocument ===
+                                    "function"
+                                ) {
+
+                                    await window.deleteTixitDocument(
+                                        id
+                                    );
+
+                                } else {
+
+                                    throw new Error(
+                                        "دالة الحذف غير موجودة."
+                                    );
+
+                                }
+
+
+                                await loadDocuments();
+
+
+                            } catch (error) {
+
+                                console.error(
+                                    "Delete Error:",
+                                    error
+                                );
+
+
+                                window.alert(
+                                    "تعذر حذف العنصر."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    search.addEventListener(
+        "input",
+        render
+    );
+
+
+    type.addEventListener(
+        "change",
+        render
+    );
+
+
+    sort.addEventListener(
+        "change",
+        render
+    );
+
+
+    favorites.addEventListener(
+        "change",
+        render
+    );
+
+
+    pinned.addEventListener(
+        "change",
+        render
+    );
+
+
+    refresh.addEventListener(
+        "click",
+        loadDocuments
+    );
+
+
+    /*
+     * تحديث تلقائي عند العودة إلى الصفحة.
+     */
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            if (
+                document.visibilityState ===
+                "visible"
+            ) {
+
+                loadDocuments();
+
+            }
+
+        }
+    );
+
+
+    loadDocuments();
+
+})();
+</script>
+
+</body>
+</html>
